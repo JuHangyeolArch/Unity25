@@ -32,9 +32,12 @@ public class CarController : MonoBehaviour
             this.endPos = Input.mousePosition;
             this.swipeLength = endPos.x - startPos.x;
             this.speed = this.swipeLength / speedRatio;
+            this.GetComponent<AudioSource>().Play();
         }
 
         transform.Translate(this.speed, 0f, 0f);
         this.speed *= decreaseRatio;
+
+        if (this.speed < 0.01f) { this.speed = 0f;}
     }
 }
