@@ -7,21 +7,23 @@ using UnityEngine;
 
 public class ArrowCtrlr : MonoBehaviour
 {
-    float dropspeed = 0.0001f;
+    float dropspeed = 0.1f;
     public float arrow_rardius = 0.6f;
     public float player_radius = 0.7f;
 
     Transform playerTransform;
 
-    // Start is called before the first frame update
+    GameObject GameDirector;
 
-    // Update is called once per frame
-
+    private void Start()
+    {
+        GameDirector = GameObject.Find("GameDirector");
+    }
 
     void Update()
     {
         this.playerTransform = GameObject.Find("player").GetComponent<Transform>();
-        this.dropspeed *= 1.4f;
+        this.dropspeed *= 1.01f;
         this.transform.Translate(0, -dropspeed, 0);
         CheckCollison();
 
@@ -40,7 +42,7 @@ public class ArrowCtrlr : MonoBehaviour
         if (distance < this.arrow_rardius + this.player_radius)
         {
             Destroy(gameObject);
-            
+            GameDirector.GetComponent<GameDirector>().DecreaseHP();
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArrowGenerator : MonoBehaviour
 {
     public GameObject arrowPrefab;
-    private float span = 1.0f;
+    private float span = 0.25f;
     private float delta = 0f;
     // Start is called before the first frame update
 
