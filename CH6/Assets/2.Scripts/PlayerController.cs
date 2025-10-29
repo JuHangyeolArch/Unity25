@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-
-    Rigidbody2D rb;
+    public Animator animator;
+    public Rigidbody2D rb;
     public float jumpForce = 300f;
     public float walkForce = 30f;
 
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         this.rb = GetComponent<Rigidbody2D>();
+        this.animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(key, 1, 1);
         
         }
+
+        this.animator.speed = this.speedX/2;
 
     }
 }
