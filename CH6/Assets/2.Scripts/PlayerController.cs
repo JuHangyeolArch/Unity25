@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
 using UnityEditor.Animations;
+using System.Collections.Specialized;
 
 public class PlayerController : MonoBehaviour
 {
@@ -84,6 +85,22 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Goal!");
         SceneManager.LoadScene("Clear Scene");
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "cloud") 
+        {
+            transform.SetParent(collision.gameObject.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "cloud")
+        {
+            transform.parent = null;
+        }
     }
 
 }
