@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BamsongiCtrlr : MonoBehaviour
 {
-    public int forwardForce = 2000;
+    public int forwardForce = 50;
     public int upForce = 200;
 
     // Start is called before the first frame update

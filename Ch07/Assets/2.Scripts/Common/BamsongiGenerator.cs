@@ -28,7 +28,7 @@ public class NewBehaviourScript : MonoBehaviour
             this.power = Input.mousePosition.y - this.startValue;
 
             GameObject go = Instantiate(bamsongiPrefab);
-            go.transform.position = new Vector3(transform.position.x, transform.position.y - 5, transform.position.z + 1);
+            go.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2f);
             go.GetComponent<BamsongiCtrlr>().Shoot((transform.forward + transform.up * 0.5f) * throwForce * power);
 
         }
